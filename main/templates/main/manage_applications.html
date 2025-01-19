@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% block title %}Manage Applications{% endblock %}
+{% block content %}
+<h1>Manage Applications</h1>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Internship</th>
+            <th>Student</th>
+            <th>Application Date</th>
+            <th>Resume</th>
+            <th>Status</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.internship.title }}</td>
+            <td>{{ application.student.username }}</td>
+            <td>{{ application.created_at|date:"M d, Y" }}</td>
+            <td>
+                {% if application.resume %}
+                    <a href="{{ application.resume.url }}" target="_blank">View Resume</a>
+                {% else %}
+                    No Resume Uploaded
+                {% endif %}
+            </td>
+            <td>{{ application.status }}</td>
+            <td>
+                <a href="{% url 'update_application_status' application.pk 'accepted' %}" 
+                   class="btn btn-success btn-sm" 
+                   onclick="return confirm('Are you sure you want to accept this application?');">
+                   Accept
+                </a>
+                <a href="{% url 'update_application_status' application.pk 'rejected' %}" 
+                   class="btn btn-danger btn-sm" 
+                   onclick="return confirm('Are you sure you want to reject this application?');">
+                   Reject
+                </a>
+            </td>
+            
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6" class="text-center">
+                <div class="alert alert-warning">No applications found.</div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

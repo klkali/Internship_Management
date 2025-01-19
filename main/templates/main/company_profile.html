@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Company Profile{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center">Company Profile</h1>
+    <a href="{% url 'company_dashboard' %}" class="btn btn-primary mb-3">Back to Dashboard</a>
+    
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4>Your Internships</h4>
+        </div>
+        <div class="card-body">
+            {% if internships %}
+                <ul class="list-group">
+                    {% for internship in internships %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>{{ internship.title }}</span>
+                        <div>
+                            <a href="{% url 'edit_internship' internship.id %}" class="btn btn-warning btn-sm mx-1">Edit</a>
+                            <a href="{% url 'delete_internship' internship.id %}" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Are you sure?')">Delete</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-center">You don't have any internships yet. <a href="{% url 'create_internship' %}" class="btn btn-success">Create Internship</a></p>
+            {% endif %}
+        </div>
+    </div>
+
+
+    
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* General Styling for the form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Form Input Enhancements */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Focused Input Field */
+.form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+/* Button Styling */
+button[type="submit"] {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Header */
+.card-header {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Button for Back to Dashboard */
+.btn-primary {
+    font-weight: bold;
+}

@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block title %}Company Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+<h1 class="mb-4">Welcome, {{ request.user.username }}</h1>
+<div class="row">
+    <!-- Profile Block -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Company Profile</h5>
+                <p class="card-text">Manage your company profile information.</p>
+                <a href="{% url 'company_profile' %}" class="btn btn-primary">Go to Profile</a>
+            </div>
+        </div>
+    </div>
+    <!-- Internship Management Block -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Manage Internships</h5>
+                <p class="card-text">Accept or Reject application of Student.</p>
+                <a href="{% url 'manage_applications' %}" class="btn btn-success">Manage Internships</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Create Internships</h5>
+                <p class="card-text">Create New Internship.</p>
+                <a href="{% url 'create_internship' %}" class="btn btn-success">Create</a>
+            </div>
+        </div>
+   
+    </div>
+</div>
+{% endblock %}

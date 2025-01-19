@@ -1,0 +1,58 @@
+
+{% extends 'main/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Create Internship{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Create Internship</h1>
+
+    <a href="{% url 'company_dashboard' %}" class="btn btn-primary mb-3">Back to Dashboard</a>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>Update Internship Details</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" class="needs-validation" novalidate>
+                {% csrf_token %}
+                
+                <!-- Title -->
+                <div class="form-group">
+                    <label for="id_title">Internship Title</label>
+                    {{ form.title|add_class:"form-control" }}
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="id_description">Description</label>
+                    {{ form.description|add_class:"form-control" }}
+                </div>
+
+                <!-- Requirements -->
+                <div class="form-group">
+                    <label for="id_requirements">Requirements</label>
+                    {{ form.requirements|add_class:"form-control" }}
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="id_location">Location</label>
+                    {{ form.location|add_class:"form-control" }}
+                </div>
+
+                <!-- Stipend -->
+                <div class="form-group">
+                    <label for="id_stipend">Stipend</label>
+                    {{ form.stipend|add_class:"form-control" }}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-success btn-block">Create </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

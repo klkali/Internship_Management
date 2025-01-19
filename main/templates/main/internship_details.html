@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block title %}Internship Details{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h3>{{ internship.title }}</h3>
+        <p><strong>Location:</strong> {{ internship.location }}</p>
+        <p><strong>Stipend:</strong> {{ internship.stipend }}</p>
+        <p><strong>Requirements:</strong></p>
+        <p>{{ internship.requirements }}</p>
+        <p><strong>Description:</strong></p>
+        <p>{{ internship.description }}</p>
+        <a href="{% url 'apply_for_internship' internship.id %}" class="btn btn-success">Apply Now</a>
+    </div>
+</div>
+{% endblock %}

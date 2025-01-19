@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card my-4">
+        <div class="card-header text-center">
+            <h2>Register</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Username</label>
+                    {{ form.username|add_class:"form-control" }}
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email address</label>
+                    {{ form.email|add_class:"form-control" }}
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-3">
+                    <label for="id_password1" class="form-label">Password</label>
+                    {{ form.password1|add_class:"form-control" }}
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="mb-3">
+                    <label for="id_password2" class="form-label">Confirm Password</label>
+                    {{ form.password2|add_class:"form-control" }}
+                </div>
+
+                <!-- User Type Selection Field -->
+                <div class="mb-3">
+                    <label for="id_user_type" class="form-label">User Type</label>
+                    {{ form.user_type|add_class:"form-select" }}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+            
+            <p class="mt-3 text-center">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
