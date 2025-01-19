@@ -2,8 +2,10 @@ from django.urls import path
 from . import views
 from django.contrib.auth.views import LoginView
 from .views import CustomLoginView, register, student_dashboard, company_dashboard
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('', auth_views.LoginView.as_view(template_name='main/login.html'), name='home'),
     path('register/', views.register, name='register'),
     path('login/', CustomLoginView.as_view(template_name='main/login.html'), name='login'),
     path('logout/', CustomLoginView.as_view(template_name='main/logout.html'), name='logout'),
