@@ -1,1 +1,1 @@
-web: gunicorn internship_management.wsgi:application
+web: gunicorn internship_management.wsgi:app
