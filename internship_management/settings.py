@@ -127,3 +127,5 @@ AUTH_USER_MODEL = 'main.User'
 LOGIN_URL = 'login'  # Default login page
 LOGIN_REDIRECT_URL = '/'  # Redirect after logout
 
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
